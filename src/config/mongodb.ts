@@ -1,12 +1,11 @@
-import fastifyMongo from '@fastify/mongodb';
+import mongoose from 'mongoose';
 
-export default async function (fastify: any) {
- try {
-  fastify.register(fastifyMongo, {
-    url: process.env.DATABASE_URL
-  });
-  console.log("Connected to MONGODB")
- } catch (error) {
-  console.log("Error connecting to mongodb",error)
- }
+export default async function connectToMongoDB() {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL ?? '');
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    process.exit(1);
+  }
 }
