@@ -1,0 +1,34 @@
+{
+  "name": "utility-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aniket-agi/utility-poc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aniket-agi/utility-poc/issues"
+  },
+  "homepage": "https://github.com/aniket-agi/utility-poc#readme",
+  "dependencies": {
+    "@fastify/env": "^4.2.0",
+    "@fastify/mongodb": "^7.0.0",
+    "@types/mongoose": "^5.11.97",
+    "fastify": "^4.22.0",
+    "mongoose": "^7.4.5",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
