@@ -18,8 +18,6 @@ export default async function (fastify: any) {
             console.log(err)
         }
         console.log("env variables validated")
-
-        console.log(fastify.config)
      });
    }
    
