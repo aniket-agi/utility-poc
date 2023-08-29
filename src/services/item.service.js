@@ -1,32 +1,32 @@
-import { addonCategoryModel } from "../models/category.model.js";
-import { addonItemModel } from "../models/item.model.js";
+import { AddonCategoryModel } from "../models/category.model.js";
+import { AddonItemModel } from "../models/item.model.js";
 
-export const createAddonItem = async (newItemData) => {
-  const parentCategory = await addonCategoryModel.findOne({
+export const createAddonItemService = async (newItemData) => {
+  const parentCategory = await AddonCategoryModel.findOne({
     _id: newItemData.parentCategory,
   });
   if (!parentCategory) {
     throw new Error("Parent category not found");
   }
-  const newItem = await addonItemModel.create(newItemData);
+  const newItem = await AddonItemModel.create(newItemData);
   return newItem;
 };
 
-export const getAllAddonItems = async () => {
-    const items = await addonItemModel.find().populate('parentCategory');
+export const getAllAddonItemsService = async () => {
+    const items = await AddonItemModel.find().populate('parentCategory');
     return items;
 }
 
-export const getAddonItemById = async (itemId) => {
-    const item = await addonItemModel.findById(itemId).populate('parentCategory');
+export const getAddonItemByIdService = async (itemId) => {
+    const item = await AddonItemModel.findById(itemId).populate('parentCategory');
     if(!item) {
         throw new Error('Item not found')
     }
     return item;
 }
 
-export const updateAddonItem = async (itemId,updatedItemData) => {
-    const updatedItem = await addonItemModel.findByIdAndUpdate(itemId,updatedItemData,{new:true});
+export const updateAddonItemService = async (itemId,updatedItemData) => {
+    const updatedItem = await AddonItemModel.findByIdAndUpdate(itemId,updatedItemData,{new:true});
 
     if(!updatedItem){
         throw new Error('Item not found')
@@ -35,8 +35,8 @@ export const updateAddonItem = async (itemId,updatedItemData) => {
     return updatedItem;
 }
 
-export const deleteAddonItem = async (itemId) => {
-    const deletedItem = await addonItemModel.findByIdAndDelete(itemId);
+export const deleteAddonItemService = async (itemId) => {
+    const deletedItem = await AddonItemModel.findByIdAndDelete(itemId);
 
     if(!deletedItem) {
         throw new Error('Item not found')

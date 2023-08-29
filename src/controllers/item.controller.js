@@ -1,11 +1,11 @@
-import { createAddonItem, deleteAddonItem, getAddonItemById, getAllAddonItems, updateAddonItem } from "../services/item.service.js";
+import { createAddonItemService, deleteAddonItemService, getAddonItemByIdService, getAllAddonItemsService, updateAddonItemService } from "../services/item.service.js";
 
 
 // Create a new Addon Item
 export const createAddonItemCategoryController = async (req, res) => {
   try {
     const newItemData = req.body;
-    const newItem = await createAddonItem(newItemData);
+    const newItem = await createAddonItemService(newItemData);
     return res.code(201).send(newItem);
   } catch (error) {
     res.code(500).send(error);
@@ -15,7 +15,7 @@ export const createAddonItemCategoryController = async (req, res) => {
 // Get all Addon Items
 export const getAllAddonItemsController = async (req, res) => {
   try {
-    const items = await getAllAddonItems();
+    const items = await getAllAddonItemsService();
     return res.send(items);
   } catch (error) {
     res.code(500).send(error);
@@ -26,7 +26,7 @@ export const getAllAddonItemsController = async (req, res) => {
 export const getAddonItemByIdController = async (req, res) => {
   try {
     const itemId = req.params.id;
-    const item = await getAddonItemById(itemId);
+    const item = await getAddonItemByIdService(itemId);
     return res.send(item);
   } catch (error) {
     res.code(500).send(error);
@@ -38,7 +38,7 @@ export const updateAddonItemController = async (req, res) => {
   try {
     const itemId = req.params.id;
     const updatedItemData = req.body;
-    const updatedItem = await updateAddonItem(itemId,updatedItemData);
+    const updatedItem = await updateAddonItemService(itemId,updatedItemData);
     return res.send(updatedItem);
   } catch (error) {
     res.code(500).send(error);
@@ -49,7 +49,7 @@ export const updateAddonItemController = async (req, res) => {
 export const deleteAddonItemController = async (req, res) => {
   try {
     const itemId = req.params.id;
-    const deletedItem = await deleteAddonItem(itemId);
+    const deletedItem = await deleteAddonItemService(itemId);
     return res.send(deletedItem);
   } catch (error) {
     res.code(500).send(error);

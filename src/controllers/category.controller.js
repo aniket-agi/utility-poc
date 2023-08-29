@@ -1,9 +1,9 @@
-import { createAddonCategory, deleteAddonCategory, getAddonCategoryById, getAllAddonCategories, updateCategory } from '../services/category.service.js';
+import { createAddonCategoryService, deleteAddonCategoryService, getAddonCategoryByIdService, getAllAddonCategoriesService, updateCategoryService } from '../services/category.service.js';
 
 // Create an Addon Category
 export const createAddonCategoryController = async (req, res)=>{
   try {
-   const data = await createAddonCategory(req.body);
+   const data = await createAddonCategoryService(req.body);
    return res.code(200).send(data);
   } catch (error) {
     res.code(500).send(error);
@@ -13,7 +13,7 @@ export const createAddonCategoryController = async (req, res)=>{
 // Get all Addon Categories
 export const getAllAddonCategoriesController = async(req, res)=>{
   try {
-    const categories = await getAllAddonCategories();
+    const categories = await getAllAddonCategoriesService();
     res.code(200).send(categories);
   } catch (error) {
     res.code(500).send(error);
@@ -21,10 +21,10 @@ export const getAllAddonCategoriesController = async(req, res)=>{
 }
 
 // Get a single Addon Category by ID
-export const getAddonCategoryByIdCategory=async(req, res)=>{
+export const getAddonCategoryByIdController=async(req, res)=>{
   try {
     const categoryId = req.params.id;
-    const category = await getAddonCategoryById(categoryId);
+    const category = await getAddonCategoryByIdService(categoryId);
     return res.send(category);
   } catch (error) {
     res.code(500).send(error);
@@ -36,7 +36,7 @@ export const updateAddonCategoryController = async(req, res)=>{
   try {
     const categoryId = req.params.id;
     const updates = req.body;
-    const updatedCategory = await updateCategory(categoryId,updates);
+    const updatedCategory = await updateCategoryService(categoryId,updates);
     return res.send(updatedCategory);
   } catch (error) {
     res.code(500).send(error);
@@ -47,7 +47,7 @@ export const updateAddonCategoryController = async(req, res)=>{
 export const deleteAddonCategoryController = async (req, res) => {
   try {
     const categoryId = req.params.id;
-    const deletedCategory = await deleteAddonCategory(categoryId);
+    const deletedCategory = await deleteAddonCategoryService(categoryId);
     return res.send(deletedCategory);
   } catch (error) {
     res.code(500).send(error);

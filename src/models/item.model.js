@@ -21,6 +21,6 @@ let addonItemSchema = new mongoose.Schema(
   }
 );
 
-let addonItemModel = mongoose.model("AddOnItem", addonItemSchema);
+let AddonItemModel = mongoose.model("AddOnItem", addonItemSchema);
 
-export { addonItemModel };
+export { AddonItemModel };

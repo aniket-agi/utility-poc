@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-let addonCategorySchema = new mongoose.Schema(
+const addonCategorySchema = new mongoose.Schema(
   {
     status: { type: String, required: true },
     name: { type: String, required: true },
@@ -13,6 +13,6 @@ let addonCategorySchema = new mongoose.Schema(
   }
 );
 
-let addonCategoryModel = mongoose.model("AddOnCategory", addonCategorySchema);
+const AddonCategoryModel = mongoose.model("AddOnCategory", addonCategorySchema);
 
-export { addonCategoryModel ,addonCategorySchema};
+export { AddonCategoryModel ,addonCategorySchema};
