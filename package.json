@@ -1,0 +1,48 @@
+{
+  "type": "module",
+  "name": "fastify-boilerplate",
+  "version": "1.0.0",
+  "description": "Fastify Boilerplate for ZED microservices.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "NODE_ENV=dev nodemon src/app.js",
+    "prepare": "husky install",
+    "env-sample": "node env-sample.js",
+    "test": "tap \"test/**/*.test.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/cors": "^8.3.0",
+    "@fastify/env": "^4.2.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/helmet": "^10.1.1",
+    "@fastify/rate-limit": "^8.0.3",
+    "@fastify/sensible": "^5.0.0",
+    "@fastify/swagger": "^8.5.1",
+    "@fastify/swagger-ui": "^1.8.1",
+    "fastify": "^4.0.0",
+    "fastify-plugin": "^4.0.0",
+    "mongoose": "^7.4.4",
+    "pg": "^8.11.1",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "0.2.0",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
+    "nodemon": "^3.0.1",
+    "tap": "^16.1.0"
+  },
+  "lint-staged": {
+    "**/*.(t|j)s": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
+  }
+}

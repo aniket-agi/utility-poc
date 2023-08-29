@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+dist
+node_modules
+.idea
+.vscode
+.nyc_output
+.idea
+.DS_Store
+.vscode
