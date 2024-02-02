@@ -1,6 +1,7 @@
 # utility-poc
 
 ### Installation
+Added more rules
 
 1. Install project dependencies using npm:
 
